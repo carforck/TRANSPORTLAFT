@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, CalendarCheck } from "lucide-react";
 import { COMPANY, SYSTEMS } from "@/lib/data";
+import { HeroSlider } from "@/components/ui/HeroSlider";
 
 export function Hero() {
   return (
@@ -65,16 +66,21 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="lead mt-6 max-w-xl"
             >
-              {COMPANY.description} Acompañamos a operadores, generadores de
-              carga y flotas en la prevención del riesgo LA/FT/FP con sistemas
-              de cumplimiento prácticos, jurídicos y ajustados a su operación
-              real.
+              {COMPANY.description}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <HeroSlider />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
               <Link href="#contacto" className="btn-primary">

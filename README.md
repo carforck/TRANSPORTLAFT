@@ -1,6 +1,22 @@
 # TRANSPORTLAFT S.A.S. — Landing
 
+[![CI](https://github.com/carforck/TRANSPORTLAFT/actions/workflows/ci.yml/badge.svg)](https://github.com/carforck/TRANSPORTLAFT/actions/workflows/ci.yml)
+![Next.js](https://img.shields.io/badge/Next.js-14.2-black?logo=nextdotjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue?logo=typescript)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwindcss)
+
 Landing oficial de **TRANSPORTLAFT S.A.S.**, consultora colombiana de cumplimiento normativo en transporte (SARLAFT · RMS · SAGRILAFT · PTEE). Construida en **Next.js 14 (App Router)** + **TypeScript** + **Tailwind CSS** + **Framer Motion**, lista para desplegar en **Vercel**.
+
+## CI/CD
+
+Cada push y PR a `main` ejecuta automáticamente en GitHub Actions:
+
+1. `npm ci` — instalación reproducible
+2. `npm run lint` — `next lint` (ESLint con preset Next.js)
+3. `npx tsc --noEmit` — type-check estricto
+4. `npm run build` — valida build de producción
+
+El deploy a Vercel ocurre automáticamente al hacer merge a `main` (integración nativa GitHub ↔ Vercel).
 
 ## Requisitos
 

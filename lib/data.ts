@@ -37,6 +37,39 @@ export const COMPANY = {
 export const SYSTEMS: string[] = ["SARLAFT", "RMS", "SAGRILAFT", "PTEE"];
 
 /* -------------------------------------------------------------------------- */
+/*                        Hero slides (carrusel)                              */
+/* -------------------------------------------------------------------------- */
+
+export interface HeroSlide {
+  id: string;
+  eyebrow: string;
+  headline: string;
+  body: string;
+}
+
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: "01",
+    eyebrow: "Primero",
+    headline: "Cumplimiento estratégico para empresas del sector transporte",
+    body: "Implementamos SARLAFT, RMS, SAGRILAFT y PTEE con enfoque jurídico, operativo y documental, conforme a la regulación de la Superintendencia de Transporte —especialmente la Resolución No. 2328 de 2025 y la Resolución No. 4607 de 2026— para que su empresa prevenga sanciones, fortalezca la debida diligencia y responda con seguridad ante cualquier requerimiento.",
+  },
+  {
+    id: "02",
+    eyebrow: "Segundo",
+    headline:
+      "No espere una sanción para ordenar el cumplimiento de su empresa",
+    body: "Los casos empresariales recientes demuestran que la falta de controles, debida diligencia y documentación puede afectar la operación, la reputación y la estabilidad de una compañía. En TransportLAFT le ayudamos a prevenir riesgos antes de que se conviertan en problemas.",
+  },
+  {
+    id: "03",
+    eyebrow: "Tercero",
+    headline: "SARLAFT o RMS: identifique qué régimen aplica a su empresa",
+    body: "En TransportLAFT actuamos como su aliado estratégico en cumplimiento normativo. Acompañamos la implementación, seguimiento y actualización de su SARLAFT o RMS, garantizando soporte jurídico, documentación trazable, capacitación y preparación ante requerimientos de la Superintendencia de Transporte.",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
 /*                       Features hero (5 pilares)                            */
 /* -------------------------------------------------------------------------- */
 
