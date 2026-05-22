@@ -10,16 +10,30 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-40"
+      className="relative isolate overflow-hidden bg-white"
     >
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-dotted opacity-50" aria-hidden />
-      <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-ink-100 via-transparent to-transparent opacity-60" aria-hidden />
+      {/* === Banner background === */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/Banner/banner1.webp"
+          alt="Camión sobre carretera con mapa de Colombia"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Light gradient overlay (white fades to right) for left-text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/10 lg:via-white/70 lg:to-transparent" />
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
+        {/* Soft top wash so navigation stays clean */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/80 to-transparent" />
+      </div>
 
-      <div className="container-page relative z-10">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="container-page relative z-10 pt-28 sm:pt-32 lg:pt-40">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* === Texto === */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 xl:col-span-6">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -49,7 +63,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="lead mt-6 max-w-2xl"
+              className="lead mt-6 max-w-xl"
             >
               {COMPANY.description} Acompañamos a operadores, generadores de
               carga y flotas en la prevención del riesgo LA/FT/FP con sistemas
@@ -92,55 +106,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* === Imagen === */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:col-span-5"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-4xl border border-ink-300/60 bg-ink-100 shadow-card">
-              <Image
-                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=85"
-                alt="Camión de transporte de carga"
-                fill
-                sizes="(max-width: 1024px) 90vw, 480px"
-                className="object-cover"
-                priority
-              />
-              {/* Overlay gradient para legibilidad */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 via-transparent to-transparent" />
-
-              {/* Floating badge logo */}
-              <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl border border-white/20 bg-white/95 px-4 py-3 backdrop-blur-md shadow-elevated">
-                <Image
-                  src="/logo.webp"
-                  alt={COMPANY.name}
-                  width={36}
-                  height={36}
-                  className="rounded-full ring-1 ring-ink-300/50"
-                />
-                <div className="leading-tight">
-                  <p className="text-[13px] font-semibold text-ink-900">
-                    transport<span className="text-gold-500">laft</span> s.a.s.
-                  </p>
-                  <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-ink-500">
-                    SARLAFT · SAGRILAFT · PTEE
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Stat overlay */}
-            <div className="absolute -left-4 -top-4 hidden rounded-2xl border border-ink-300/60 bg-white p-4 shadow-card sm:block">
-              <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-500">
-                Cobertura
-              </p>
-              <p className="mt-1 text-lg font-semibold text-ink-900">
-                100% <span className="text-ink-500">Colombia</span>
-              </p>
-            </div>
-          </motion.div>
+          {/* === Espacio derecho dejado a la imagen del banner === */}
+          <div className="hidden lg:col-span-5 lg:block xl:col-span-6" aria-hidden />
         </div>
 
         {/* === Metrics row === */}
@@ -148,7 +115,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink-300/60 bg-ink-300/60 sm:grid-cols-4"
+          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink-300/60 bg-ink-300/60 shadow-card sm:grid-cols-4"
         >
           {[
             { value: "4", label: "Sistemas de cumplimiento" },
@@ -156,7 +123,7 @@ export function Hero() {
             { value: "100%", label: "Enfoque en transporte" },
             { value: "Colombia", label: "Cobertura nacional" },
           ].map((m) => (
-            <div key={m.label} className="bg-white p-6 sm:p-8">
+            <div key={m.label} className="bg-white/95 p-6 backdrop-blur sm:p-8">
               <p className="display-3 text-ink-900">{m.value}</p>
               <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-ink-500">
                 {m.label}
